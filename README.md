@@ -43,7 +43,7 @@ Reviewer requires the following environment variables to function properly:
   You can generate a GitHub personal access token from GitHub Settings.
 
 ### Persistent Setup (Optional)
-To persist the environment variables across terminal sessions, add the export lines to your shell configuration file (e.g., \`~/.bashrc\`, \`~/.zshrc\`, etc.):
+To persist the environment variables across terminal sessions, add the export lines to your shell configuration file (e.g., `~/.bashrc`, `~/.zshrc`, etc.):
 ```bash
 echo 'export OPENAI_API_KEY="your_openai_api_key"' >> ~/.bashrc
 echo 'export GITHUB_TOKEN="your_github_personal_access_token"' >> ~/.bashrc
