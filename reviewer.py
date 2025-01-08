@@ -162,7 +162,8 @@ def call_openai_api(diff_content: str, context: str) -> str:
     system_prompt = (
         "You are an AI code reviewer. You will receive a Git diff "
         "and should provide feedback on potential issues, typos, improvements, "
-        "keep it short by focusing on potential errors that could cause production issues. if nothing to report, just say so."
+        "keep it short by focusing on potential errors that could cause production issues. "
+        "if nothing major is preventing the diff to be commit, then just reply with only one word: 'APPROVED'."
     )
     user_prompt = (
         f"Context: {context}\n"
@@ -234,15 +235,15 @@ def main():
     print(feedback)
     print("----- AI REVIEW END -----\n")
 
-    # If we're in pre-commit mode, let's ask user if they want to proceed
-    if args.pre_commit:
-        user_input = input("Do you want to proceed with the commit? (y/n): ").strip().lower()
-        if user_input not in ["y", "yes"]:
-            print("Aborting commit as per user choice.")
-            sys.exit(1)
-        else:
-            print("Proceeding with commit.")
-            sys.exit(0)
+    # Automatically detect APPROVED and proceed or abort
+    if "APPROVED" in feedback:
+        print("AI review result: APPROVED. Proceeding with the commit.")
+        sys.exit(0)  # Exit with success
+    else:
+        print("AI review result: Not approved. Aborting the commit.")
+        sys.exit(1)  # Exit with failure
+
+
 
 if __name__ == "__main__":
     main()
