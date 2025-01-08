@@ -47,8 +47,6 @@ It provides suggestions for improving your code, identifying potential issues, a
     
 ### 3. GitHub Pull Request Review
 
-    ```
     python reviewer.py --url https://github.com/<org>/<repo>/pull/<pr_number>
-    ```
 
     
