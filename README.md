@@ -21,20 +21,15 @@ It provides suggestions for improving your code, identifying potential issues, a
 
 ### 2. Create a virtual env and install dependencies
 
-    ```
     python3 -m venv venv
     source venv/bin/activate
     pip install -r requirements.txt
-    ```
-
 
 ## Usage
 
 ### 1. Standalone Mode
 
-    ```
     python reviewer.py
-    ```
 
 ### 2. Pre-commit Hook
 
