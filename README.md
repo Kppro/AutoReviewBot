@@ -42,8 +42,9 @@ It provides suggestions for improving your code, identifying potential issues, a
 
 2. Make it executable
 
-    chmod +x .git/hooks/pre-commit
-
+   ```
+   chmod +x .git/hooks/pre-commit
+   ```
     
 ### 3. GitHub Pull Request Review
 
