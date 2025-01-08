@@ -12,17 +12,17 @@
 ## Installation
 
 ### 1. Clone the repository:
-\`\`\`bash
+```bash
 git clone https://github.com/your_username/reviewer.git
 cd reviewer
-\`\`\`
+```
 
 ### 2. Create a virtual environment and install dependencies:
-\`\`\`bash
+```bash
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-\`\`\`
+```
 
 ## Environment Variables Setup
 Reviewer requires the following environment variables to function properly:
@@ -30,56 +30,56 @@ Reviewer requires the following environment variables to function properly:
 - **OpenAI API Key**: To access OpenAI's API.
   
   Set the \`OPENAI_API_KEY\` environment variable to your OpenAI API key.
-  \`\`\`bash
+  ```bash
   export OPENAI_API_KEY="your_openai_api_key"
-  \`\`\`
+  ```
 
 - **GitHub Personal Access Token (Optional)**: To access private GitHub repositories or rate-limit-free API requests.
   
   Set the \`GITHUB_TOKEN\` environment variable to your GitHub personal access token.
-  \`\`\`bash
+  ```bash
   export GITHUB_TOKEN="your_github_personal_access_token"
-  \`\`\`
+  ```
   You can generate a GitHub personal access token from GitHub Settings.
 
 ### Persistent Setup (Optional)
 To persist the environment variables across terminal sessions, add the export lines to your shell configuration file (e.g., \`~/.bashrc\`, \`~/.zshrc\`, etc.):
-\`\`\`bash
+```bash
 echo 'export OPENAI_API_KEY="your_openai_api_key"' >> ~/.bashrc
 echo 'export GITHUB_TOKEN="your_github_personal_access_token"' >> ~/.bashrc
-\`\`\`
+```
 
 ## Usage
 
 ### 1. Standalone Mode
 Run the reviewer on unstaged changes in your local repository:
-\`\`\`bash
+```bash
 python reviewer.py
-\`\`\`
+```
 
 ### 2. Pre-commit Hook
 Add the following script to \`.git/hooks/pre-commit\`:
-\`\`\`bash
+```bash
 #!/bin/bash
 python path/to/reviewer.py --pre-commit
-\`\`\`
+```
 Make it executable:
-\`\`\`bash
+```bash
 chmod +x .git/hooks/pre-commit
-\`\`\`
+```
 From now on, every time you try to commit changes, Reviewer will analyze the staged changes before the commit is finalized.
 
 ### 3. GitHub Pull Request Review
 Analyze a GitHub pull request by providing its URL:
-\`\`\`bash
+```bash
 python reviewer.py --url https://github.com/<org>/<repo>/pull/<pr_number>
-\`\`\`
+```
 
 ## Customization
 
 ### Excluded File Types
 You can customize the excluded file types by editing the \`EXCLUDED_EXTENSIONS\` list in the \`reviewer.py\` file. For example:
-\`\`\`python
+```python
 EXCLUDED_EXTENSIONS = [
     ".pbxproj",
     ".storyboard",
@@ -90,7 +90,7 @@ EXCLUDED_EXTENSIONS = [
     ".gif",
     ".ico",
 ]
-\`\`\`
+```
 Add or remove extensions as needed to match your project's requirements.
 
 ## Contributing
